@@ -3,233 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameStation Pro - Modern Gaming Experience</title>
+    <title>NEXUS | Gaming Lounge & Cafe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Reset & Base */
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --primary-light: #818cf8;
-            --secondary: #f59e0b;
-            --secondary-dark: #d97706;
-            --dark: #111827;
-            --dark-light: #1f2937;
-            --light: #f9fafb;
-            --gray: #6b7280;
-            --gray-light: #e5e7eb;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
-            --radius: 12px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --primary-blue: #0a0f2d;
+            --secondary-blue: #1a1f4b;
+            --accent-blue: #3d5afe;
+            --neon-blue: #00e5ff;
+            --light-blue: #e3f2fd;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #0a0f2d 0%, #1a1f4b 50%, #3d5afe 100%);
+            --glass: rgba(255, 255, 255, 0.1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --glow: 0 0 15px rgba(61, 90, 254, 0.5);
+            --success: #00ff88;
+            --warning: #ffaa00;
+            --danger: #ff4757;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
-
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #f8fafc;
-            color: var(--dark);
-            line-height: 1.6;
+            background-color: var(--primary-blue);
+            color: var(--white);
             overflow-x: hidden;
+            line-height: 1.6;
         }
-
+        
         .container {
-            width: 100%;
-            max-width: 1280px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px;
         }
-
-        /* Header - Modern */
+        .choose-duration{
+            color: black;
+        }
+        
+        /* Header & Navigation */
         header {
-            background: white;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 15, 45, 0.95);
             backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(61, 90, 254, 0.2);
+            padding: 15px 0;
+            transition: all 0.3s ease;
         }
-
-        .header-container {
+        
+        .navbar {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 16px 0;
-            position: relative;
+            align-items: center;
         }
-
+        
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--neon-blue), var(--accent-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             text-decoration: none;
-            color: var(--dark);
         }
-
+        
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: var(--gradient);
+            background: linear-gradient(45deg, var(--neon-blue), var(--accent-blue));
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.5rem;
+            transform: rotate(45deg);
+            box-shadow: var(--glow);
         }
-
-        .logo-text {
+        
+        .logo-icon i {
+            transform: rotate(-45deg);
+            font-size: 1.2rem;
+        }
+        
+        .nav-links {
             display: flex;
-            flex-direction: column;
-        }
-
-        .logo-text h1 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1;
-        }
-
-        .logo-text span {
-            font-size: 0.75rem;
-            color: var(--gray);
-            font-weight: 500;
-        }
-
-        /* Navigation - Modern */
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2px;
-            background: #f3f4f6;
-            padding: 4px;
-            border-radius: 10px;
-        }
-
-        nav li {
-            flex: 1;
-        }
-
-        nav a {
-            display: flex;
+            gap: 35px;
             align-items: center;
-            gap: 8px;
-            padding: 12px 20px;
+        }
+        
+        .nav-links a {
             text-decoration: none;
-            color: var(--gray);
+            color: var(--white);
             font-weight: 500;
-            border-radius: 8px;
-            transition: var(--transition);
-            white-space: nowrap;
+            position: relative;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
         }
-
-        nav a:hover {
-            background: white;
-            color: var(--primary);
-            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.1);
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-blue);
+            transition: width 0.3s ease;
         }
-
-        nav a.active {
-            background: white;
-            color: var(--primary);
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+        
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
         }
-
-        nav a i {
-            font-size: 1rem;
+        
+        .nav-links a:hover {
+            color: var(--neon-blue);
         }
-
-        /* User Menu - Modern */
+        
         .user-menu {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 20px;
         }
-
-        .user-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn {
-            padding: 10px 22px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-sm {
-            padding: 8px 16px;
-            font-size: 0.875rem;
-        }
-
-        .btn-primary {
-            background: var(--gradient);
-            color: white;
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary-light);
-        }
-
-        .btn-outline:hover {
-            background: rgba(99, 102, 241, 0.05);
-            border-color: var(--primary);
-        }
-
-        .btn-success {
-            background: var(--success);
-            color: white;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
-        }
-
-        .btn-success:hover {
-            background: #0da271;
-            transform: translateY(-2px);
-        }
-
+        
         .user-info {
             display: flex;
             align-items: center;
             gap: 12px;
-            background: #f8fafc;
+            background: rgba(255, 255, 255, 0.05);
             padding: 8px 16px;
-            border-radius: 10px;
-            border: 1px solid var(--gray-light);
+            border-radius: 50px;
+            border: 1px solid rgba(61, 90, 254, 0.2);
         }
-
+        
         .user-avatar {
             width: 36px;
             height: 36px;
-            background: var(--gradient);
+            background: linear-gradient(45deg, var(--accent-blue), var(--neon-blue));
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -237,333 +165,408 @@
             color: white;
             font-weight: 600;
             font-size: 0.875rem;
+            box-shadow: var(--glow);
         }
-
+        
         .user-name {
             font-weight: 600;
-            color: var(--dark);
+            color: var(--white);
+            font-size: 0.9rem;
         }
-
+        
         .btn-logout {
             background: transparent;
-            color: var(--gray);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 6px 12px;
             border-radius: 6px;
-            border: 1px solid var(--gray-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
             font-size: 0.875rem;
         }
-
+        
         .btn-logout:hover {
-            background: #fee2e2;
+            background: rgba(255, 71, 87, 0.1);
             color: var(--danger);
             border-color: var(--danger);
         }
-
-        /* Mobile Menu Toggle */
-        .mobile-toggle {
-            display: none;
-            background: none;
+        
+        .auth-buttons {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
             border: none;
-            color: var(--dark);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--accent-blue), var(--neon-blue));
+            color: var(--white);
+            box-shadow: var(--glow);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.3);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--accent-blue);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(61, 90, 254, 0.1);
+            border-color: var(--neon-blue);
+        }
+        
+        .btn-success {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(0, 255, 136, 0.2);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(45deg, #ff4757, #ff3742);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.2);
+        }
+        
+        .menu-toggle {
+            display: none;
             font-size: 1.5rem;
             cursor: pointer;
-            padding: 8px;
+            color: var(--white);
         }
-
+        
         /* Main Content */
         main {
-            padding: 30px 0 60px;
+            padding: 140px 0 60px;
             min-height: calc(100vh - 200px);
         }
-
+        
         .page {
             display: none;
             animation: fadeIn 0.4s ease;
         }
-
+        
         .page.active {
             display: block;
         }
-
+        
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        /* Dashboard - Modern */
+        
+        /* Dashboard */
         .hero {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.95), rgba(139, 92, 246, 0.9)),
-                        url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-            border-radius: var(--radius);
-            padding: 60px 40px;
-            color: white;
-            margin-bottom: 40px;
+            padding: 60px;
+            background: var(--gradient);
+            border-radius: 25px;
             position: relative;
             overflow: hidden;
+            margin-bottom: 40px;
+            margin-top: 100px;
         }
-
+        
         .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(0,0,0,0.2), transparent);
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80') no-repeat center/cover;
+            opacity: 0.15;
+            mix-blend-mode: overlay;
         }
-
+        
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 600px;
+            max-width: 700px;
         }
-
+        
         .hero h2 {
-            font-size: 2.8rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            margin-bottom: 16px;
-            line-height: 1.2;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--white), var(--neon-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
-
+        
         .hero p {
             font-size: 1.1rem;
             margin-bottom: 30px;
-            opacity: 0.95;
-            line-height: 1.6;
+            color: var(--light-blue);
+            max-width: 600px;
         }
-
-        /* Features Grid - Modern */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin: 40px 0;
-        }
-
-        .feature-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 30px;
+        
+        /* Active Booking Card */
+        .booking-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 40px;
+            margin-top: 100px;
+            border: 1px solid rgba(61, 90, 254, 0.2);
+            backdrop-filter: blur(10px);
             box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid transparent;
             position: relative;
             overflow: hidden;
         }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--primary-light);
-        }
-
-        .feature-card::before {
+        
+        .booking-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient);
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--neon-blue), var(--accent-blue));
         }
-
-        .feature-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, #f3f4f6, #ffffff);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-            color: var(--primary);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .feature-card h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--dark);
-        }
-
-        .feature-card p {
-            color: var(--gray);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* Active Booking - Modern */
-        .active-booking {
-            background: white;
-            border-radius: var(--radius);
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: var(--shadow);
-            border-left: 5px solid var(--primary);
-        }
-
+        
         .section-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--gray-light);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-
+        
         .section-header h2 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--dark);
+            color: var(--white);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
-
+        
         .section-header h2 i {
-            color: var(--primary);
+            color: var(--neon-blue);
         }
-
+        
         .timer-display {
             font-family: 'Courier New', monospace;
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 800;
             text-align: center;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(to right, var(--neon-blue), var(--accent-blue));
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 20px 0;
-            text-shadow: 0 5px 15px rgba(99, 102, 241, 0.1);
+            background-clip: text;
+            color: transparent;
+            margin: 30px 0;
+            text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+            letter-spacing: 2px;
         }
-
-        .timer-info-grid {
+        
+        .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             margin: 30px 0;
         }
-
-        .timer-info-card {
-            background: #f8fafc;
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
             padding: 20px;
-            border-radius: 10px;
-            border: 1px solid var(--gray-light);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
-
-        .timer-info-card .label {
+        
+        .info-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+            box-shadow: var(--glow);
+        }
+        
+        .info-card .label {
             font-size: 0.875rem;
-            color: var(--gray);
-            margin-bottom: 6px;
+            color: var(--light-blue);
+            margin-bottom: 8px;
             display: block;
         }
-
-        .timer-info-card .value {
+        
+        .info-card .value {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--dark);
+            color: var(--white);
         }
-
-        .timer-controls {
+        
+        .controls-grid {
             display: flex;
-            gap: 12px;
+            gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
+            margin-top: 30px;
         }
-
-        /* Booking Form - Modern */
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 35px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(61, 90, 254, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-blue);
+            box-shadow: var(--glow);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            background: linear-gradient(45deg, var(--accent-blue), var(--neon-blue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(45deg);
+            box-shadow: var(--glow);
+        }
+        
+        .feature-icon i {
+            transform: rotate(-45deg);
+            font-size: 1.8rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .feature-card p {
+            color: var(--light-blue);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Booking Form */
         .booking-container {
-            background: white;
-            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
             padding: 40px;
+            border: 1px solid rgba(61, 90, 254, 0.2);
+            backdrop-filter: blur(10px);
             box-shadow: var(--shadow);
+            margin-top: 100px; /* Ditambahkan untuk memberi jarak dari header */
         }
-
+        
         .form-step {
             display: none;
             animation: slideIn 0.3s ease;
         }
-
+        
         .form-step.active {
             display: block;
         }
-
+        
         @keyframes slideIn {
-            from { opacity: 0; transform: translateX(20px); }
+            from { opacity: 0; transform: translateX(30px); }
             to { opacity: 1; transform: translateX(0); }
         }
-
+        
         .step-header {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             padding-bottom: 20px;
-            border-bottom: 1px solid var(--gray-light);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-
+        
         .step-number {
-            width: 36px;
-            height: 36px;
-            background: var(--gradient);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--accent-blue), var(--neon-blue));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: 700;
+            box-shadow: var(--glow);
         }
-
+        
         .step-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
-            color: var(--dark);
+            color: var(--white);
         }
-
-        /* Console Selection - Modern */
+        
+        /* Console Selection */
         .console-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             gap: 20px;
             margin: 30px 0;
         }
-
+        
         .console-card {
-            background: #f8fafc;
+            background: rgba(255, 255, 255, 0.05);
             border: 2px solid transparent;
-            border-radius: var(--radius);
+            border-radius: 20px;
             padding: 25px;
             text-align: center;
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
-
+        
         .console-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-light);
-            background: white;
-            box-shadow: var(--shadow);
+            transform: translateY(-8px);
+            border-color: var(--accent-blue);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: var(--glow);
         }
-
+        
         .console-card.selected {
-            border-color: var(--primary);
-            background: rgba(99, 102, 241, 0.05);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.1);
+            border-color: var(--neon-blue);
+            background: rgba(0, 229, 255, 0.1);
+            box-shadow: 0 15px 30px rgba(0, 229, 255, 0.2);
         }
-
+        
         .console-card.selected::before {
             content: '✓';
             position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 24px;
-            height: 24px;
-            background: var(--primary);
+            top: 15px;
+            right: 15px;
+            width: 28px;
+            height: 28px;
+            background: var(--neon-blue);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -571,375 +574,441 @@
             justify-content: center;
             font-size: 0.875rem;
             font-weight: bold;
+            box-shadow: var(--glow);
         }
-
+        
         .console-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
+            font-size: 3rem;
+            color: var(--neon-blue);
             margin-bottom: 15px;
         }
-
+        
         .console-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--dark);
+            margin-bottom: 10px;
+            color: var(--white);
         }
-
+        
+        .console-card p {
+            color: var(--light-blue);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
         .console-price {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--neon-blue);
             margin-top: 10px;
         }
-
-        /* Form Controls - Modern */
+        
+        /* Form Controls - PERBAIKAN 1: Input warna putih */
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             margin: 30px 0;
         }
-
+        
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 25px;
         }
-
+        
         .form-label {
             display: block;
             font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--dark);
-            font-size: 0.95rem;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid var(--gray-light);
-            border-radius: 8px;
+            margin-bottom: 12px;
+            color: var(--white);
             font-size: 1rem;
-            transition: var(--transition);
-            background: white;
         }
-
-        .form-control:focus {
+        
+        .form-control, .form-select {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            color: var(--white); /* Pastikan teks putih */
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Perbaikan khusus untuk dropdown option */
+        .form-select option {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+        
+        /* Placeholder warna lebih terang */
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .form-control:focus, .form-select:focus {
             outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            border-color: var(--accent-blue);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 0 3px rgba(61, 90, 254, 0.1);
         }
-
-        .form-radio-group {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
+        
+        .radio-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
         }
-
+        
         .radio-card {
-            flex: 1;
-            min-width: 200px;
+            position: relative;
         }
-
+        
         .radio-card input {
             display: none;
         }
-
+        
         .radio-card label {
             display: block;
-            padding: 20px;
-            background: #f8fafc;
+            padding: 25px 20px;
+            background: rgba(255, 255, 255, 0.05);
             border: 2px solid transparent;
-            border-radius: 8px;
+            border-radius: 15px;
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             text-align: center;
+            color: var(--white); /* Pastikan label putih */
         }
-
+        
         .radio-card input:checked + label {
-            border-color: var(--primary);
-            background: rgba(99, 102, 241, 0.05);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+            border-color: var(--neon-blue);
+            background: rgba(0, 229, 255, 0.1);
+            box-shadow: var(--glow);
+            color: var(--neon-blue); /* Warna neon saat terpilih */
         }
-
+        
         .radio-card label:hover {
-            border-color: var(--primary-light);
-            background: white;
+            border-color: var(--accent-blue);
+            background: rgba(255, 255, 255, 0.08);
         }
-
-        .radio-card .icon {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 10px;
+        
+        .radio-icon {
+            font-size: 1.8rem;
+            color: var(--neon-blue);
+            margin-bottom: 12px;
         }
-
-        /* Seat Selection - Modern */
+        
+        /* Seat Selection */
         .seat-map-container {
-            background: #f8fafc;
-            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
             padding: 30px;
             margin: 30px 0;
+            border: 1px solid rgba(61, 90, 254, 0.2);
         }
-
+        
         .screen {
-            background: linear-gradient(to right, #374151, #6b7280, #374151);
+            background: linear-gradient(to right, #1a1f4b, #3d5afe, #1a1f4b);
             color: white;
             text-align: center;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            font-weight: 600;
-            letter-spacing: 3px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            box-shadow: var(--glow);
+            font-size: 1.2rem;
         }
-
+        
         .seat-row {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 15px;
+            gap: 20px;
+            margin-bottom: 20px;
         }
-
+        
         .seat {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
             font-weight: 600;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             position: relative;
+            font-size: 0.9rem;
         }
-
+        
         .seat.available {
-            background: #d1fae5;
-            color: #065f46;
-            border: 2px solid #10b981;
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--success);
+            border: 2px solid var(--success);
         }
-
+        
         .seat.available:hover {
-            background: #a7f3d0;
+            background: rgba(0, 255, 136, 0.2);
             transform: scale(1.1);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
         }
-
+        
         .seat.selected {
-            background: var(--primary);
+            background: linear-gradient(45deg, var(--accent-blue), var(--neon-blue));
             color: white;
-            border-color: var(--primary);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+            border-color: var(--neon-blue);
+            box-shadow: var(--glow);
         }
-
+        
         .seat.occupied {
-            background: #f3f4f6;
-            color: #9ca3af;
-            border-color: #d1d5db;
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.1);
             cursor: not-allowed;
         }
-
-        /* Menu Items - Modern */
+        
+        /* Food Menu */
         .menu-category {
             margin-bottom: 40px;
         }
-
+        
         .category-header {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
             margin-bottom: 25px;
             padding-bottom: 15px;
-            border-bottom: 2px solid #f3f4f6;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
         }
-
+        
         .category-header h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: var(--dark);
+            color: var(--white);
         }
-
+        
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
         }
-
+        
         .menu-item {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
             border: 1px solid transparent;
         }
-
+        
         .menu-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            border-color: var(--primary-light);
+            transform: translateY(-8px);
+            border-color: var(--accent-blue);
+            box-shadow: var(--glow);
         }
-
+        
         .menu-item-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
-
+        
         .item-name {
             font-weight: 700;
-            color: var(--dark);
-            font-size: 1.05rem;
-        }
-
-        .item-price {
-            font-weight: 800;
-            color: var(--primary);
+            color: var(--white);
             font-size: 1.1rem;
         }
-
-        .item-description {
-            font-size: 0.875rem;
-            color: var(--gray);
-            margin-bottom: 15px;
-            line-height: 1.4;
+        
+        .item-price {
+            font-weight: 800;
+            color: var(--neon-blue);
+            font-size: 1.2rem;
         }
-
+        
+        .item-description {
+            font-size: 0.9rem;
+            color: var(--light-blue);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
         .quantity-controls {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: #f8fafc;
-            border-radius: 8px;
-            padding: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 10px;
         }
-
+        
         .qty-btn {
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             border: none;
-            border-radius: 6px;
-            background: white;
-            color: var(--primary);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
             font-weight: 600;
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-
+        
         .qty-btn:hover {
-            background: var(--primary);
-            color: white;
-            transform: scale(1.05);
+            background: linear-gradient(45deg, var(--accent-blue), var(--neon-blue));
+            transform: scale(1.1);
         }
-
+        
         .qty-display {
             font-weight: 700;
-            font-size: 1.1rem;
-            min-width: 40px;
+            font-size: 1.2rem;
+            min-width: 45px;
             text-align: center;
         }
-
-        /* Summary - Modern */
+        
+        /* Summary Card */
         .summary-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(61, 90, 254, 0.2);
+            backdrop-filter: blur(10px);
             box-shadow: var(--shadow);
             position: sticky;
-            top: 100px;
+            top: 140px; /* Diperbaiki agar tidak terlalu ke atas */
         }
-
+        
         .summary-header {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
-            margin-bottom: 25px;
-            color: var(--dark);
+            margin-bottom: 30px;
+            color: var(--white);
+            text-align: center;
         }
-
+        
         .summary-item {
             display: flex;
             justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid #f3f4f6;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-
+        
         .summary-item:last-child {
             border-bottom: none;
         }
-
+        
         .summary-total {
             display: flex;
             justify-content: space-between;
-            padding: 20px 0;
-            margin-top: 20px;
-            border-top: 2px solid var(--gray-light);
-            font-size: 1.3rem;
+            padding: 25px 0;
+            margin-top: 25px;
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+            font-size: 1.5rem;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--neon-blue);
         }
-
-        /* Footer - Modern */
+        
+        /* History Page */
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .history-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(61, 90, 254, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .history-item:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+            box-shadow: var(--glow);
+        }
+        
+        /* Footer */
         footer {
-            background: var(--dark);
-            color: white;
-            padding: 60px 0 30px;
-            margin-top: 60px;
+            background: var(--secondary-blue);
+            padding: 80px 0 30px;
+            border-top: 1px solid rgba(61, 90, 254, 0.3);
         }
-
-        .footer-grid {
+        
+        .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 50px;
+            margin-bottom: 50px;
         }
-
-        .footer-section h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
             margin-bottom: 20px;
-            color: white;
+            background: linear-gradient(to right, var(--neon-blue), var(--accent-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
-
-        .footer-links {
-            list-style: none;
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
         }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: var(--transition);
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
         }
-
+        
+        .social-icon:hover {
+            background: linear-gradient(45deg, var(--accent-blue), var(--neon-blue));
+            transform: translateY(-5px);
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--neon-blue);
+        }
+        
+        .footer-links li {
+            list-style: none;
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--light-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
         .footer-links a:hover {
-            color: white;
-            transform: translateX(5px);
+            color: var(--neon-blue);
         }
-
-        .footer-links i {
-            width: 20px;
-            color: var(--primary-light);
-        }
-
+        
         .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid #374151;
-            color: #9ca3af;
-            font-size: 0.875rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-blue);
+            font-size: 0.9rem;
         }
-
-        /* Modals - Modern */
+        
+        /* Modals */
         .modal {
             display: none;
             position: fixed;
@@ -947,91 +1016,97 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-            z-index: 1000;
+            background: rgba(10, 15, 45, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
             align-items: center;
             justify-content: center;
             padding: 20px;
         }
-
+        
         .modal.active {
             display: flex;
             animation: modalFadeIn 0.3s ease;
         }
-
+        
         @keyframes modalFadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
+        
         .modal-content {
-            background: white;
-            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
             width: 100%;
             max-width: 500px;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(61, 90, 254, 0.2);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
             animation: modalSlideIn 0.3s ease;
         }
-
+        
         @keyframes modalSlideIn {
             from { transform: translateY(-30px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-
+        
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 25px 30px;
-            border-bottom: 1px solid var(--gray-light);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-
+        
         .modal-header h3 {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--dark);
+            color: var(--white);
         }
-
+        
         .close-modal {
             background: none;
             border: none;
-            font-size: 1.5rem;
-            color: var(--gray);
+            font-size: 1.8rem;
+            color: var(--light-blue);
             cursor: pointer;
             padding: 5px;
-            border-radius: 6px;
-            transition: var(--transition);
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
-
+        
         .close-modal:hover {
-            background: #f3f4f6;
-            color: var(--dark);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
         }
-
+        
         .modal-body {
             padding: 30px;
         }
-
-        /* Responsive Design */
+        
+        /* Responsive */
         @media (max-width: 1024px) {
             .console-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             }
             
             .menu-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+            
+            .timer-display {
+                font-size: 3.5rem;
             }
         }
-
+        
         @media (max-width: 768px) {
-            .header-container {
+            .navbar {
                 flex-wrap: wrap;
             }
             
-            .mobile-toggle {
+            .menu-toggle {
                 display: block;
                 order: 1;
             }
@@ -1042,37 +1117,46 @@
                 justify-content: center;
             }
             
-            .user-menu {
+            .nav-links {
                 order: 3;
+                width: 100%;
+                margin-top: 20px;
+                display: none;
+                flex-direction: column;
+                background: rgba(10, 15, 45, 0.95);
+                padding: 20px;
+                border-radius: 15px;
+                border: 1px solid rgba(61, 90, 254, 0.2);
+                backdrop-filter: blur(20px);
             }
             
-            nav {
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .user-menu {
                 order: 4;
                 width: 100%;
                 margin-top: 20px;
                 display: none;
             }
             
-            nav.active {
-                display: block;
-            }
-            
-            nav ul {
+            .user-menu.active {
+                display: flex;
                 flex-direction: column;
-                background: white;
-                border: 1px solid var(--gray-light);
+                align-items: stretch;
             }
             
             .hero h2 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
-            .timer-display {
-                font-size: 3rem;
+            .hero {
+                padding: 40px 30px;
             }
             
             .booking-container {
-                padding: 25px;
+                padding: 30px;
             }
             
             .form-grid {
@@ -1080,68 +1164,68 @@
             }
             
             .console-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             }
             
             .menu-grid {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 40px 20px;
+                grid-template-columns: 1fr;
             }
             
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            
-            .timer-controls {
+            .controls-grid {
                 flex-direction: column;
             }
             
-            .btn {
+            .controls-grid .btn {
                 width: 100%;
                 justify-content: center;
+            }
+            
+            .timer-display {
+                font-size: 2.8rem;
+            }
+            
+            .summary-card {
+                position: static;
+                margin-top: 40px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 2rem;
             }
             
             .booking-container {
                 padding: 20px;
             }
             
-            .modal-content {
-                margin: 10px;
+            .timer-display {
+                font-size: 2.2rem;
             }
-            a.logo{
-                display: none;
+            
+            .info-grid {
+                grid-template-columns: 1fr;
             }
-            .user-actions{
-                margin-right: 50px;
-            }
-            .user-info{
-                margin-right: 20px;
-            }
-            .section-header{
-                display: block !important;
-            }
-            .section-header h2{
-                text-align: center;
-            }
-            #user-balance{
-               font-size: xx-large;
-            }
-            #btn-action-booking{
-                display: block !important;
-            }
-            #btn-action-booking button{
-                margin: 10px 0px;
+            
+            .features-grid {
+                grid-template-columns: 1fr;
             }
         }
-
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
         /* Utility Classes */
-        .text-primary { color: var(--primary); }
+        .text-neon { color: var(--neon-blue); }
         .text-success { color: var(--success); }
+        .text-warning { color: var(--warning); }
         .text-danger { color: var(--danger); }
         .text-center { text-align: center; }
         .mb-20 { margin-bottom: 20px; }
@@ -1150,58 +1234,66 @@
         .mt-20 { margin-top: 20px; }
         .mt-30 { margin-top: 30px; }
         .mt-40 { margin-top: 40px; }
+        .sticky-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .sticky-footer.hidden {
+            transform: translateY(100px);
+            opacity: 0;
+        }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="container header-container">
-            <button class="mobile-toggle" id="mobile-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <a href="#" class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-gamepad"></i>
-                </div>
-                <div class="logo-text">
-                    <h1>GameStation Pro</h1>
-                    <span>Premium Gaming Experience</span>
-                </div>
-            </a>
-            
-            <nav id="main-nav">
-                <ul>
-                    <li><a href="#" class="nav-link active" data-page="dashboard">
+        <div class="container">
+            <nav class="navbar">
+                <button class="menu-toggle" id="mobile-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <span>NEXUS</span>
+                </a>
+                
+                <div class="nav-links" id="main-nav">
+                    <a href="#" class="nav-link active" data-page="dashboard">
                         <i class="fas fa-home"></i> Dashboard
-                    </a></li>
-                    <li><a href="#" class="nav-link" data-page="booking">
+                    </a>
+                    <a href="#" class="nav-link" data-page="booking">
                         <i class="fas fa-calendar-alt"></i> Booking
-                    </a></li>
-                    <li><a href="#" class="nav-link" data-page="history">
+                    </a>
+                    <a href="#" class="nav-link" data-page="history">
                         <i class="fas fa-history"></i> History
-                    </a></li>
-                </ul>
-            </nav>
-            
-            <div class="user-menu">
-                <div id="auth-buttons" class="user-actions">
-                    <button class="btn btn-outline btn-sm" id="btn-login">
-                        <i class="fas fa-sign-in-alt"></i> Login
-                    </button>
-                    <button class="btn btn-primary btn-sm" id="btn-register">
-                        <i class="fas fa-user-plus"></i> Register
-                    </button>
+                    </a>
                 </div>
                 
-                <div id="user-info" class="user-info" style="display: none;">
-                    <div class="user-avatar" id="user-avatar">U</div>
-                    <span class="user-name" id="user-name">User</span>
-                    <button class="btn-logout" id="btn-logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                    </button>
+                <div class="user-menu" id="user-menu">
+                    <div id="auth-buttons" class="auth-buttons">
+                        <button class="btn btn-outline" id="btn-login">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </button>
+                        <button class="btn btn-primary" id="btn-register">
+                            <i class="fas fa-user-plus"></i> Register
+                        </button>
+                    </div>
+                    
+                    <div id="user-info" class="user-info" style="display: none;">
+                        <div class="user-avatar" id="user-avatar">U</div>
+                        <span class="user-name" id="user-name">User</span>
+                        <button class="btn-logout" id="btn-logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </nav>
         </div>
     </header>
 
@@ -1210,34 +1302,34 @@
         <!-- Dashboard Page -->
         <section id="dashboard-page" class="page active">
             <!-- Active Booking -->
-            <div id="active-booking-section" class="active-booking" style="display: none;">
+            <div id="active-booking-section" class="booking-card" style="display: none;">
                 <div class="section-header">
                     <h2><i class="fas fa-clock"></i> Active Booking</h2>
-                    <span class="text-primary" id="booking-status">Running</span>
+                    <span class="text-neon" id="booking-status">Running</span>
                 </div>
                 
                 <div class="timer-display" id="timer-display">00:00:00</div>
                 
-                <div class="timer-info-grid">
-                    <div class="timer-info-card">
-                        <span class="label">PlayStation</span>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <span class="label">Console</span>
                         <span class="value" id="timer-ps">PS5</span>
                     </div>
-                    <div class="timer-info-card">
+                    <div class="info-card">
                         <span class="label">Total Duration</span>
                         <span class="value" id="timer-duration">3 Hours</span>
                     </div>
-                    <div class="timer-info-card">
+                    <div class="info-card">
                         <span class="label">Remaining</span>
-                        <span class="value text-primary" id="timer-remaining">2:15:30</span>
+                        <span class="value text-neon" id="timer-remaining">2:15:30</span>
                     </div>
-                    <div class="timer-info-card">
+                    <div class="info-card">
                         <span class="label">Seats</span>
                         <span class="value" id="timer-seats">A1, A2</span>
                     </div>
                 </div>
                 
-                <div class="timer-controls">
+                <div class="controls-grid">
                     <button class="btn btn-outline" id="btn-pause">
                         <i class="fas fa-pause"></i> Pause
                     </button>
@@ -1253,11 +1345,16 @@
             <!-- Hero Section -->
             <div class="hero">
                 <div class="hero-content">
-                    <h2>Ultimate Gaming Experience</h2>
-                    <p>Experience next-gen gaming with PlayStation 5, premium comfort, and complete facilities. Book your session now!</p>
-                    <button class="btn btn-primary" id="hero-book-btn">
-                        <i class="fas fa-gamepad"></i> Book Now
-                    </button>
+                    <h2>ULTIMATE GAMING EXPERIENCE</h2>
+                    <p>NEXUS adalah destinasi premium untuk para gamer. Nikmati PlayStation terbaru dengan spesifikasi maksimal, ditambah menu makanan dan minuman khusus untuk pengalaman gaming yang tak terlupakan.</p>
+                    <div style="display: flex; gap: 15px; margin-top: 30px;">
+                        <button class="btn btn-primary floating" id="hero-book-btn">
+                            <i class="fas fa-gamepad"></i> Book Now
+                        </button>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-play-circle"></i> View Tour
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -1297,26 +1394,26 @@
             </div>
 
             <!-- Billing Section -->
-            <div id="billing-section" class="active-booking" style="display: none;">
+            <div id="billing-section" class="booking-card" style="display: none;">
                 <div class="section-header">
                     <h2><i class="fas fa-wallet"></i> Your Balance</h2>
-                    <button class="btn btn-primary btn-sm" id="btn-topup">
+                    <button class="btn btn-primary" id="btn-topup">
                         <i class="fas fa-plus"></i> Top Up
                     </button>
                 </div>
                 
-                <div class="timer-display text-primary" id="user-balance">Rp 50.000</div>
+                <div class="timer-display text-neon" id="user-balance">Rp 50.000</div>
                 
-                <div class="timer-info-grid">
-                    <div class="timer-info-card">
+                <div class="info-grid">
+                    <div class="info-card">
                         <span class="label">Last Top Up</span>
                         <span class="value">Yesterday</span>
                     </div>
-                    <div class="timer-info-card">
+                    <div class="info-card">
                         <span class="label">Total Spent</span>
                         <span class="value">Rp 150.000</span>
                     </div>
-                    <div class="timer-info-card">
+                    <div class="info-card">
                         <span class="label">Points</span>
                         <span class="value text-success">1,250</span>
                     </div>
@@ -1324,21 +1421,21 @@
             </div>
 
             <!-- Login Prompt -->
-            <div id="login-prompt" class="active-booking">
+            <div id="login-prompt" class="booking-card">
                 <div class="section-header">
-                    <h2><i class="fas fa-sign-in-alt"></i> Welcome to GameStation Pro</h2>
+                    <h2><i class="fas fa-sign-in-alt"></i> Welcome to NEXUS Gaming</h2>
                 </div>
                 
                 <div style="text-align: center; padding: 40px 0;">
-                    <div class="feature-icon" style="margin: 0 auto 20px;">
+                    <div class="feature-icon" style="margin: 0 auto 20px; background: rgba(255,255,255,0.05);">
                         <i class="fas fa-gamepad"></i>
                     </div>
                     <h3 style="margin-bottom: 15px;">Ready to Game?</h3>
-                    <p style="color: var(--gray); margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto;">
+                    <p style="color: var(--light-blue); margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto;">
                         Login or create an account to book PlayStation, track your balance, and access all features.
                     </p>
                     
-                    <div style="display: flex; gap: 15px; justify-content: center;">
+                    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                         <button class="btn btn-outline" id="prompt-login">
                             <i class="fas fa-sign-in-alt"></i> Login
                         </button>
@@ -1354,13 +1451,13 @@
         <section id="booking-page" class="page">
             <!-- Login Required -->
             <div id="booking-login-required" style="display: none;">
-                <div class="active-booking">
+                <div class="booking-card">
                     <div style="text-align: center; padding: 60px 0;">
-                        <div class="feature-icon" style="margin: 0 auto 20px; background: #f3f4f6; color: var(--dark);">
+                        <div class="feature-icon" style="margin: 0 auto 20px; background: rgba(255,255,255,0.05);">
                             <i class="fas fa-lock"></i>
                         </div>
                         <h3 style="margin-bottom: 15px;">Login Required</h3>
-                        <p style="color: var(--gray); margin-bottom: 30px;">
+                        <p style="color: var(--light-blue); margin-bottom: 30px;">
                             Please login to continue with your booking.
                         </p>
                         <div style="display: flex; gap: 15px; justify-content: center;">
@@ -1441,46 +1538,46 @@
                             <div class="form-group">
                                 <label class="form-label">Duration (Minimum 2 hours)</label>
                                 <select class="form-control" id="duration">
-                                    <option value="2">2 Hours</option>
-                                    <option value="3">3 Hours</option>
-                                    <option value="4">4 Hours</option>
-                                    <option value="5">5 Hours</option>
-                                    <option value="6">6 Hours</option>
-                                    <option value="8">8 Hours</option>
-                                    <option value="12">12 Hours</option>
-                                    <option value="24">24 Hours</option>
+                                    <option value="2" class="choose-duration">2 Hours</option>
+                                    <option value="3" class="choose-duration">3 Hours</option>
+                                    <option value="4" class="choose-duration">4 Hours</option>
+                                    <option value="5" class="choose-duration">5 Hours</option>
+                                    <option value="6" class="choose-duration">6 Hours</option>
+                                    <option value="8" class="choose-duration">8 Hours</option>
+                                    <option value="12" class="choose-duration">12 Hours</option>
+                                    <option value="24" class="choose-duration">24 Hours</option>
                                 </select>
                             </div>
                             
                             <div class="form-group">
                                 <label class="form-label">Room Type</label>
-                                <div class="form-radio-group">
+                                <div class="radio-group">
                                     <div class="radio-card">
                                         <input type="radio" id="room-ac" name="room-type" value="ac" checked>
                                         <label for="room-ac">
-                                            <div class="icon">
+                                            <div class="radio-icon">
                                                 <i class="fas fa-snowflake"></i>
                                             </div>
                                             <div style="font-weight: 600;">AC Room</div>
-                                            <div style="font-size: 0.875rem; color: var(--gray);">+Rp 5.000/hr</div>
+                                            <div style="font-size: 0.875rem; color: var(--light-blue);">+Rp 5.000/hr</div>
                                         </label>
                                     </div>
                                     
                                     <div class="radio-card">
                                         <input type="radio" id="room-fan" name="room-type" value="fan">
                                         <label for="room-fan">
-                                            <div class="icon">
+                                            <div class="radio-icon">
                                                 <i class="fas fa-fan"></i>
                                             </div>
                                             <div style="font-weight: 600;">Fan Room</div>
-                                            <div style="font-size: 0.875rem; color: var(--gray);">+Rp 3.000/hr</div>
+                                            <div style="font-size: 0.875rem; color: var(--light-blue);">+Rp 3.000/hr</div>
                                         </label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <div style="display: flex; justify-content: space-between; margin-top: 40px;" id="btn-action-booking">
+                        <div style="display: flex; justify-content: space-between; margin-top: 40px;">
                             <button class="btn btn-outline" id="prev-step-2">
                                 <i class="fas fa-arrow-left"></i> Back
                             </button>
@@ -1499,16 +1596,15 @@
                         
                         <div class="seat-map-container">
                             <div class="screen">SCREEN</div>
-                            <!-- Seat map will be generated by JavaScript -->
                             <div id="seat-map"></div>
                             
                             <div style="margin-top: 30px;">
-                                <div class="form-label">Selected Seats: <span id="selected-seats-display" class="text-primary">None</span></div>
-                                <small style="color: var(--gray);">Additional charge: Rp 2.000 per seat per hour</small>
+                                <div class="form-label">Selected Seats: <span id="selected-seats-display" class="text-neon">None</span></div>
+                                <small style="color: var(--light-blue);">Additional charge: Rp 2.000 per seat per hour</small>
                             </div>
                         </div>
                         
-                        <div style="display: flex; justify-content: space-between; margin-top: 40px;" id="btn-action-booking">
+                        <div style="display: flex; justify-content: space-between; margin-top: 40px;">
                             <button class="btn btn-outline" id="prev-step-3">
                                 <i class="fas fa-arrow-left"></i> Back
                             </button>
@@ -1527,7 +1623,7 @@
                         
                         <div class="menu-category">
                             <div class="category-header">
-                                <i class="fas fa-utensils" style="color: var(--primary);"></i>
+                                <i class="fas fa-utensils" style="color: var(--neon-blue);"></i>
                                 <h3>Food</h3>
                             </div>
                             <div class="menu-grid" id="food-menu">
@@ -1537,7 +1633,7 @@
                         
                         <div class="menu-category">
                             <div class="category-header">
-                                <i class="fas fa-glass-cheers" style="color: var(--primary);"></i>
+                                <i class="fas fa-glass-cheers" style="color: var(--neon-blue);"></i>
                                 <h3>Drinks</h3>
                             </div>
                             <div class="menu-grid" id="drink-menu">
@@ -1545,7 +1641,7 @@
                             </div>
                         </div>
                         
-                        <div style="display: flex; justify-content: space-between; margin-top: 40px;" id="btn-action-booking">
+                        <div style="display: flex; justify-content: space-between; margin-top: 40px;">
                             <button class="btn btn-outline" id="prev-step-4">
                                 <i class="fas fa-arrow-left"></i> Back
                             </button>
@@ -1565,11 +1661,11 @@
                         <div class="form-grid">
                             <div class="form-group">
                                 <label class="form-label">Play Location</label>
-                                <div class="form-radio-group">
+                                <div class="radio-group">
                                     <div class="radio-card">
                                         <input type="radio" id="location-rental" name="location" value="rental" checked>
                                         <label for="location-rental">
-                                            <div class="icon">
+                                            <div class="radio-icon">
                                                 <i class="fas fa-store"></i>
                                             </div>
                                             <div style="font-weight: 600;">At Rental</div>
@@ -1579,11 +1675,11 @@
                                     <div class="radio-card">
                                         <input type="radio" id="location-home" name="location" value="home">
                                         <label for="location-home">
-                                            <div class="icon">
+                                            <div class="radio-icon">
                                                 <i class="fas fa-home"></i>
                                             </div>
                                             <div style="font-weight: 600;">At Home</div>
-                                            <div style="font-size: 0.875rem; color: var(--gray);">+Rp 20.000 delivery</div>
+                                            <div style="font-size: 0.875rem; color: var(--light-blue);">+Rp 20.000 delivery</div>
                                         </label>
                                     </div>
                                 </div>
@@ -1591,11 +1687,11 @@
                             
                             <div class="form-group">
                                 <label class="form-label">Payment Method</label>
-                                <div class="form-radio-group">
+                                <div class="radio-group">
                                     <div class="radio-card">
                                         <input type="radio" id="payment-cash" name="payment" value="cash" checked>
                                         <label for="payment-cash">
-                                            <div class="icon">
+                                            <div class="radio-icon">
                                                 <i class="fas fa-money-bill-wave"></i>
                                             </div>
                                             <div style="font-weight: 600;">Cash</div>
@@ -1605,7 +1701,7 @@
                                     <div class="radio-card">
                                         <input type="radio" id="payment-transfer" name="payment" value="transfer">
                                         <label for="payment-transfer">
-                                            <div class="icon">
+                                            <div class="radio-icon">
                                                 <i class="fas fa-university"></i>
                                             </div>
                                             <div style="font-weight: 600;">Bank Transfer</div>
@@ -1642,16 +1738,16 @@
                                 <span>Total</span>
                                 <span id="summary-total">Rp 0</span>
                             </div>
+                            <div class="sticky-footer">
+                                <button class="btn btn-outline" id="prev-step-5">
+                                    <i class="fas fa-arrow-left"></i> Back
+                                </button>
+                                <button class="btn btn-success text-black" id="confirm-booking">
+                                    <i class="fas fa-check"></i> Confirm Booking
+                                </button>
+                            </div>
                         </div>
                         
-                        <div style="display: flex; justify-content: space-between; margin-top: 40px;" id="btn-action-booking">
-                            <button class="btn btn-outline" id="prev-step-5">
-                                <i class="fas fa-arrow-left"></i> Back
-                            </button>
-                            <button class="btn btn-success" id="confirm-booking">
-                                <i class="fas fa-check"></i> Confirm Booking
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1661,13 +1757,13 @@
         <section id="history-page" class="page">
             <!-- Login Required -->
             <div id="history-login-required" style="display: none;">
-                <div class="active-booking">
+                <div class="booking-card">
                     <div style="text-align: center; padding: 60px 0;">
-                        <div class="feature-icon" style="margin: 0 auto 20px; background: #f3f4f6; color: var(--dark);">
+                        <div class="feature-icon" style="margin: 0 auto 20px; background: rgba(255,255,255,0.05);">
                             <i class="fas fa-lock"></i>
                         </div>
                         <h3 style="margin-bottom: 15px;">Login Required</h3>
-                        <p style="color: var(--gray); margin-bottom: 30px;">
+                        <p style="color: var(--light-blue); margin-bottom: 30px;">
                             Please login to view your booking history.
                         </p>
                         <div style="display: flex; gap: 15px; justify-content: center;">
@@ -1684,22 +1780,22 @@
 
             <!-- History Content -->
             <div id="history-content" style="display: none;">
-                <div class="active-booking">
+                <div class="booking-card">
                     <div class="section-header">
                         <h2><i class="fas fa-history"></i> Booking History</h2>
-                        <div class="btn btn-outline btn-sm">
+                        <button class="btn btn-outline">
                             <i class="fas fa-filter"></i> Filter
-                        </div>
+                        </button>
                     </div>
                     
                     <div id="history-list">
                         <!-- History items will be generated by JavaScript -->
                         <div style="text-align: center; padding: 60px 0;">
-                            <div class="feature-icon" style="margin: 0 auto 20px; background: #f3f4f6; color: var(--dark);">
+                            <div class="feature-icon" style="margin: 0 auto 20px; background: rgba(255,255,255,0.05);">
                                 <i class="fas fa-history"></i>
                             </div>
                             <h3 style="margin-bottom: 15px;">No Bookings Yet</h3>
-                            <p style="color: var(--gray); margin-bottom: 30px;">
+                            <p style="color: var(--light-blue); margin-bottom: 30px;">
                                 You haven't made any bookings yet. Start your gaming journey now!
                             </p>
                             <button class="btn btn-primary" id="history-book-btn">
@@ -1715,65 +1811,68 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>GameStation Pro</h3>
-                    <p style="color: #d1d5db; line-height: 1.6; margin-top: 10px;">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">NEXUS</div>
+                    <p style="color: var(--light-blue); line-height: 1.6; margin-top: 10px;">
                         Premium PlayStation rental with complete facilities and the best gaming experience.
                     </p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
                 </div>
                 
-                <div class="footer-section">
+                <div>
                     <h3>Contact</h3>
                     <ul class="footer-links">
                         <li>
-                            <a href="#">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Jl. Gaming No. 123, Jakarta</span>
-                            </a>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Jl. Gaming No. 123, Jakarta</span>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fas fa-phone"></i>
-                                <span>(021) 555-7890</span>
-                            </a>
+                            <i class="fas fa-phone"></i>
+                            <span>(021) 555-7890</span>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fas fa-envelope"></i>
-                                <span>info@gamestation-pro.com</span>
-                            </a>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@nexusgaming.com</span>
                         </li>
                     </ul>
                 </div>
                 
-                <div class="footer-section">
+                <div>
                     <h3>Opening Hours</h3>
                     <ul class="footer-links">
                         <li>
-                            <a href="#">
-                                <i class="fas fa-clock"></i>
-                                <span>Mon-Fri: 10:00 - 22:00</span>
-                            </a>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 10:00 - 22:00</span>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fas fa-clock"></i>
-                                <span>Sat-Sun: 09:00 - 23:00</span>
-                            </a>
+                            <i class="fas fa-clock"></i>
+                            <span>Sat-Sun: 09:00 - 23:00</span>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fas fa-clock"></i>
-                                <span>Holidays: 09:00 - 23:00</span>
-                            </a>
+                            <i class="fas fa-clock"></i>
+                            <span>Holidays: 09:00 - 23:00</span>
                         </li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                &copy; 2023 GameStation Pro. All rights reserved.
+                &copy; 2023 NEXUS Gaming Lounge. All rights reserved.
             </div>
         </div>
     </footer>
@@ -1800,8 +1899,8 @@
                         <i class="fas fa-sign-in-alt"></i> Login
                     </button>
                 </form>
-                <div style="text-align: center; margin-top: 20px; color: var(--gray);">
-                    Don't have an account? <a href="#" id="switch-to-register" style="color: var(--primary); font-weight: 600;">Register here</a>
+                <div style="text-align: center; margin-top: 20px; color: var(--light-blue);">
+                    Don't have an account? <a href="#" id="switch-to-register" style="color: var(--neon-blue); font-weight: 600;">Register here</a>
                 </div>
             </div>
         </div>
@@ -1840,8 +1939,8 @@
                         <i class="fas fa-user-plus"></i> Create Account
                     </button>
                 </form>
-                <div style="text-align: center; margin-top: 20px; color: var(--gray);">
-                    Already have an account? <a href="#" id="switch-to-login" style="color: var(--primary); font-weight: 600;">Login here</a>
+                <div style="text-align: center; margin-top: 20px; color: var(--light-blue);">
+                    Already have an account? <a href="#" id="switch-to-login" style="color: var(--neon-blue); font-weight: 600;">Login here</a>
                 </div>
             </div>
         </div>
@@ -1857,7 +1956,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label class="form-label">Amount</label>
-                    <div class="form-radio-group">
+                    <div class="radio-group">
                         <div class="radio-card">
                             <input type="radio" id="amount-50" name="topup-amount" value="50000" checked>
                             <label for="amount-50">
@@ -1884,7 +1983,7 @@
                 
                 <div class="form-group">
                     <label class="form-label">Payment Method</label>
-                    <select class="form-control" id="topup-method">
+                    <select class="form-select" id="topup-method">
                         <option value="midtrans">Midtrans (Credit Card)</option>
                         <option value="bank">Bank Transfer</option>
                         <option value="cash">Cash at Counter</option>
@@ -1926,7 +2025,6 @@
         });
 
         function initData() {
-            // Load data from localStorage if available
             const savedUser = localStorage.getItem('currentUser');
             const savedBalance = localStorage.getItem('userBalance');
             
@@ -1935,19 +2033,14 @@
                 userBalance = savedBalance ? parseInt(savedBalance) : 0;
             }
             
-            // Load booking history
             const savedHistory = localStorage.getItem('bookingHistory');
             if (savedHistory) {
                 bookingHistory = JSON.parse(savedHistory);
             }
             
-            // Generate seat map
             generateSeatMap();
-            
-            // Generate menu items
             generateMenuItems();
             
-            // Check for active booking
             const savedBooking = localStorage.getItem('activeBooking');
             if (savedBooking) {
                 activeBooking = JSON.parse(savedBooking);
@@ -1959,6 +2052,7 @@
             // Mobile menu toggle
             document.getElementById('mobile-toggle').addEventListener('click', function() {
                 document.getElementById('main-nav').classList.toggle('active');
+                document.getElementById('user-menu').classList.toggle('active');
             });
 
             // Navigation
@@ -1966,11 +2060,9 @@
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    // Update active nav
                     document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
                     this.classList.add('active');
                     
-                    // Show page
                     const pageId = this.dataset.page;
                     document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
                     document.getElementById(`${pageId}-page`).classList.add('active');
@@ -2031,7 +2123,6 @@
                 const password = document.getElementById('login-password').value;
                 
                 if (username && password) {
-                    // Simulate login
                     currentUser = {
                         id: 'user_' + Date.now(),
                         name: username,
@@ -2039,13 +2130,11 @@
                         email: `${username}@example.com`
                     };
                     
-                    userBalance = 50000; // Starting balance
+                    userBalance = 50000;
                     
-                    // Save to localStorage
                     localStorage.setItem('currentUser', JSON.stringify(currentUser));
                     localStorage.setItem('userBalance', userBalance);
                     
-                    // Update UI
                     updateUserDisplay();
                     updateUIForLoginStatus();
                     
@@ -2069,7 +2158,6 @@
                     return;
                 }
                 
-                // Simulate registration
                 currentUser = {
                     id: 'user_' + Date.now(),
                     name: name,
@@ -2077,18 +2165,16 @@
                     email: email
                 };
                 
-                userBalance = 50000; // Starting balance for new users
+                userBalance = 50000;
                 
-                // Save to localStorage
                 localStorage.setItem('currentUser', JSON.stringify(currentUser));
                 localStorage.setItem('userBalance', userBalance);
                 
-                // Update UI
                 updateUserDisplay();
                 updateUIForLoginStatus();
                 
                 hideModal('register-modal');
-                showNotification('Registration successful! Welcome to GameStation Pro');
+                showNotification('Registration successful! Welcome to NEXUS Gaming');
             });
 
             // Logout
@@ -2117,7 +2203,6 @@
                 userBalance += amount;
                 localStorage.setItem('userBalance', userBalance);
                 
-                // Update display
                 document.getElementById('user-balance').textContent = formatCurrency(userBalance);
                 
                 hideModal('topup-modal');
@@ -2135,16 +2220,12 @@
             // Step 1: Console selection
             document.querySelectorAll('.console-card').forEach(card => {
                 card.addEventListener('click', function() {
-                    // Remove selection
                     document.querySelectorAll('.console-card').forEach(c => c.classList.remove('selected'));
                     
-                    // Add selection
                     this.classList.add('selected');
                     
-                    // Store selection
                     bookingData.console = this.dataset.ps;
                     
-                    // Update summary
                     updateBookingSummary();
                 });
             });
@@ -2204,7 +2285,7 @@
 
             document.getElementById('prev-step-5').addEventListener('click', () => showStep(4));
             
-            // Final confirmation
+            // Final confirmation - PERBAIKAN 3: Tambah text di button hijau
             document.getElementById('confirm-booking').addEventListener('click', confirmBooking);
         }
 
@@ -2220,7 +2301,6 @@
             });
 
             document.getElementById('btn-extend').addEventListener('click', function() {
-                // Simulate extending time by 1 hour
                 if (activeBooking) {
                     activeBooking.duration += 1;
                     localStorage.setItem('activeBooking', JSON.stringify(activeBooking));
@@ -2273,24 +2353,20 @@
             const seatId = seat.dataset.seatId;
             
             if (seat.classList.contains('selected')) {
-                // Remove selection
                 seat.classList.remove('selected');
                 seat.classList.add('available');
                 bookingData.seats = bookingData.seats.filter(s => s !== seatId);
             } else {
-                // Check max seats
                 if (bookingData.seats.length >= 4) {
                     alert('Maximum 4 seats per booking');
                     return;
                 }
                 
-                // Add selection
                 seat.classList.remove('available');
                 seat.classList.add('selected');
                 bookingData.seats.push(seatId);
             }
             
-            // Update display
             updateSelectedSeatsDisplay();
             updateBookingSummary();
         }
@@ -2305,7 +2381,6 @@
         }
 
         function generateMenuItems() {
-            // Food items
             const foodItems = [
                 { id: 1, name: 'French Fries', description: 'Crispy golden fries', price: 20000 },
                 { id: 2, name: 'Chicken Wings', description: 'Spicy buffalo wings', price: 35000 },
@@ -2313,7 +2388,6 @@
                 { id: 4, name: 'Pizza Slice', description: 'Pepperoni pizza slice', price: 30000 }
             ];
             
-            // Drink items
             const drinkItems = [
                 { id: 101, name: 'Cola', description: 'Cold refreshing cola', price: 15000 },
                 { id: 102, name: 'Orange Juice', description: 'Freshly squeezed', price: 20000 },
@@ -2324,17 +2398,14 @@
             const foodContainer = document.getElementById('food-menu');
             const drinkContainer = document.getElementById('drink-menu');
             
-            // Clear containers
             foodContainer.innerHTML = '';
             drinkContainer.innerHTML = '';
             
-            // Generate food items
             foodItems.forEach(item => {
                 const menuItem = createMenuItem(item, 'food');
                 foodContainer.appendChild(menuItem);
             });
             
-            // Generate drink items
             drinkItems.forEach(item => {
                 const menuItem = createMenuItem(item, 'drink');
                 drinkContainer.appendChild(menuItem);
@@ -2361,7 +2432,6 @@
                 </div>
             `;
             
-            // Add event listeners
             div.querySelector('.plus').addEventListener('click', function() {
                 const id = this.dataset.id;
                 const type = this.dataset.type;
@@ -2389,7 +2459,6 @@
             
             display.textContent = currentQty;
             
-            // Update booking data
             if (type === 'food') {
                 bookingData.food = bookingData.food.filter(f => f.id !== itemId);
                 if (currentQty > 0) {
@@ -2406,18 +2475,12 @@
         }
 
         function showStep(step) {
-            // Hide all steps
             document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-            
-            // Show selected step
             document.getElementById(`step-${step}`).classList.add('active');
-            
-            // Update summary
             updateBookingSummary();
         }
 
         function updateBookingSummary() {
-            // Calculate prices
             let consolePrice = 0;
             switch(bookingData.console) {
                 case 'ps5': consolePrice = 15000; break;
@@ -2430,26 +2493,21 @@
             const seatPrice = bookingData.seats.length * 2000;
             const deliveryPrice = bookingData.location === 'home' ? 20000 : 0;
             
-            // Calculate food and drink prices
             let foodPrice = 0;
             bookingData.food.forEach(item => {
-                // In real app, get price from data
-                foodPrice += item.quantity * 20000; // Example price
+                foodPrice += item.quantity * 20000;
             });
             
             let drinkPrice = 0;
             bookingData.drinks.forEach(item => {
-                // In real app, get price from data
-                drinkPrice += item.quantity * 15000; // Example price
+                drinkPrice += item.quantity * 15000;
             });
             
-            // Calculate totals
             const hourlyRate = consolePrice + roomPrice + seatPrice;
             const totalConsoles = hourlyRate * bookingData.duration;
             const totalFoodDrinks = foodPrice + drinkPrice;
             const total = totalConsoles + totalFoodDrinks + deliveryPrice;
             
-            // Update summary display
             document.getElementById('summary-ps').textContent = formatCurrency(totalConsoles);
             document.getElementById('summary-room').textContent = bookingData.roomType === 'ac' ? 'AC Room' : 'Fan Room';
             document.getElementById('summary-seats').textContent = bookingData.seats.length > 0 ? bookingData.seats.join(', ') : 'None';
@@ -2459,24 +2517,20 @@
         }
 
         function confirmBooking() {
-            // Calculate total
             updateBookingSummary();
             const total = parseCurrency(document.getElementById('summary-total').textContent);
             
-            // Check payment method
             if (bookingData.payment === 'transfer') {
                 if (userBalance < total) {
                     alert('Insufficient balance. Please top up or use cash payment.');
                     return;
                 }
                 
-                // Deduct from balance
                 userBalance -= total;
                 localStorage.setItem('userBalance', userBalance);
                 document.getElementById('user-balance').textContent = formatCurrency(userBalance);
             }
             
-            // Create active booking
             activeBooking = {
                 console: bookingData.console,
                 duration: bookingData.duration,
@@ -2485,10 +2539,8 @@
                 total: total
             };
             
-            // Save to localStorage
             localStorage.setItem('activeBooking', JSON.stringify(activeBooking));
             
-            // Add to history
             bookingHistory.unshift({
                 date: new Date().toISOString().split('T')[0],
                 console: bookingData.console,
@@ -2500,7 +2552,6 @@
             
             localStorage.setItem('bookingHistory', JSON.stringify(bookingHistory));
             
-            // Reset booking data
             bookingData = {
                 console: null,
                 duration: 2,
@@ -2512,7 +2563,6 @@
                 drinks: []
             };
             
-            // Reset form
             document.querySelectorAll('.console-card').forEach(c => c.classList.remove('selected'));
             document.querySelectorAll('.seat').forEach(s => {
                 s.classList.remove('selected');
@@ -2522,13 +2572,8 @@
             });
             document.querySelectorAll('.qty-display').forEach(d => d.textContent = '0');
             
-            // Show step 1
             showStep(1);
-            
-            // Navigate to dashboard
             document.querySelector('[data-page="dashboard"]').click();
-            
-            // Start timer
             startTimer();
             
             showNotification('Booking confirmed! Session started.');
@@ -2537,10 +2582,7 @@
         function startTimer() {
             if (!activeBooking) return;
             
-            // Update active booking display
             document.getElementById('active-booking-section').style.display = 'block';
-            
-            // Start timer
             timerInterval = setInterval(updateTimerDisplay, 1000);
             updateTimerDisplay();
         }
@@ -2554,19 +2596,15 @@
             const totalSeconds = activeBooking.duration * 3600;
             const remainingSeconds = Math.max(0, totalSeconds - elapsedSeconds);
             
-            // Calculate hours, minutes, seconds
             const hours = Math.floor(remainingSeconds / 3600);
             const minutes = Math.floor((remainingSeconds % 3600) / 60);
             const seconds = remainingSeconds % 60;
             
-            // Format display
             const formatted = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
             
-            // Update display
             document.getElementById('timer-display').textContent = formatted;
             document.getElementById('timer-remaining').textContent = formatted;
             
-            // Check if time is up
             if (remainingSeconds <= 0) {
                 endSession();
             }
@@ -2618,20 +2656,16 @@
         function updateUIForLoginStatus() {
             const isLoggedIn = currentUser !== null;
             
-            // Update dashboard
             document.getElementById('login-prompt').style.display = isLoggedIn ? 'none' : 'block';
             document.getElementById('billing-section').style.display = isLoggedIn ? 'block' : 'none';
             document.getElementById('active-booking-section').style.display = (isLoggedIn && activeBooking) ? 'block' : 'none';
             
-            // Update booking page
             document.getElementById('booking-login-required').style.display = isLoggedIn ? 'none' : 'block';
             document.getElementById('booking-form-container').style.display = isLoggedIn ? 'block' : 'none';
             
-            // Update history page
             document.getElementById('history-login-required').style.display = isLoggedIn ? 'none' : 'block';
             document.getElementById('history-content').style.display = isLoggedIn ? 'block' : 'none';
             
-            // Update user display
             updateUserDisplay();
         }
 
@@ -2653,44 +2687,30 @@
         }
 
         function showNotification(message) {
-            // Create notification element
             const notification = document.createElement('div');
             notification.className = 'notification';
             notification.textContent = message;
             notification.style.cssText = `
                 position: fixed;
-                top: 20px;
+                top: 100px;
                 right: 20px;
-                background: var(--primary);
+                background: linear-gradient(45deg, var(--accent-blue), var(--neon-blue));
                 color: white;
-                padding: 12px 24px;
-                border-radius: 8px;
-                box-shadow: var(--shadow);
-                z-index: 1000;
+                padding: 15px 25px;
+                border-radius: 12px;
+                box-shadow: var(--glow);
+                z-index: 3000;
                 animation: slideIn 0.3s ease;
+                font-weight: 500;
+                max-width: 400px;
             `;
             
             document.body.appendChild(notification);
             
-            // Remove after 3 seconds
             setTimeout(() => {
                 notification.style.animation = 'slideOut 0.3s ease';
                 setTimeout(() => notification.remove(), 300);
             }, 3000);
-            
-            // Add animation styles
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes slideIn {
-                    from { transform: translateX(100%); opacity: 0; }
-                    to { transform: translateX(0); opacity: 1; }
-                }
-                @keyframes slideOut {
-                    from { transform: translateX(0); opacity: 1; }
-                    to { transform: translateX(100%); opacity: 0; }
-                }
-            `;
-            document.head.appendChild(style);
         }
 
         function formatCurrency(amount) {
